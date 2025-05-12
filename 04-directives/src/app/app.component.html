@@ -1,0 +1,18 @@
+<main>
+  <app-learning-resources  />
+
+  <hr />
+
+  <app-auth />
+
+  <!-- Anything inside ng-template will not be rendered by default -->
+<!--  <ng-template appAuth="admin">-->
+<!--      <p >Only for admins</p>-->
+<!--  </ng-template>-->
+
+<!--  Asterix is syntax sugar for ng-template. Also sets up property binding (as if square brackets were used) so content evaluates as ts -->
+  <p  *appAuth="'admin'" appLog class="protected-content admin">Only for admins</p>
+  <p  *appAuth="'user'" class="protected-content unauthenticated">Regular users can see</p>
+  <p  *appAuth="'guest'" class="protected-content unauthenticated">Guest users can see</p>
+
+</main>
