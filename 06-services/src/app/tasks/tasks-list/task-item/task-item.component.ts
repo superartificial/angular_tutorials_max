@@ -1,8 +1,8 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { Task, TaskStatus } from '../../task.model';
-import {TaskService} from "../../task.service";
+import { Task, TASK_STATUS_OPTIONS, TaskStatus } from '../../task.model';
+import { TaskService } from "../../task.service";
 
 @Component({
   selector: 'app-task-item',
@@ -25,6 +25,8 @@ export class TaskItemComponent {
         return 'Open';
     }
   });
+
+  taskStatusOptions = inject(TASK_STATUS_OPTIONS);
 
   taskService = inject(TaskService);
 
